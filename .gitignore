@@ -1,0 +1,12 @@
+/build
+/install
+/log
+/build_isolated
+/install_isolated
+/log_isolated
+/build_isolated_isolated
+/install_isolated_isolated
+/log_isolated_isolated
+/build_isolated_isolated_isolated
+/install_isolated_isolated_isolated
+/log_isolated_isolated_isolated
