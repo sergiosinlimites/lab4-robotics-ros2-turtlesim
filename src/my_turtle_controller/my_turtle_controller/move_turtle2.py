@@ -369,7 +369,7 @@ class TurtleController(Node):
 
         # Barra superior
         self.rotate_to_angle(math.radians(0))
-        self.move_timed(2.0, 0.0, 1.0) # 2m derecha
+        self.move_timed(2.0, 0.0, 0.75) # 2m derecha
         
 
 
