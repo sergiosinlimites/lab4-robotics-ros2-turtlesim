@@ -11,6 +11,35 @@
 - Usar los comandos fundamentales de Linux.
 - Conectar nodos de ROS 2 con Python.
 
+## Conceptos básicos de ROS 2 utilizados
+
+En este laboratorio se aplican algunos de los conceptos fundamentales de ROS 2:
+
+- **Nodos**  
+  Son procesos que realizan una o varias tareas.  
+  En este proyecto:
+  - `turtlesim_node` es el nodo del simulador que dibuja y actualiza la tortuga en el canvas.
+  - `move_turtle2.py` (`TurtleController`) es el nodo de control que envía comandos de velocidad, escucha la pose y gestiona el teclado.
+
+- **Tópicos (topics)**  
+  Canales de comunicación asíncrona para publicar y suscribirse a mensajes, como:
+  - `/turtle1/cmd_vel` (`geometry_msgs/msg/Twist`) donde el nodo de control publica velocidades lineales y angulares para mover la tortuga.
+  - `/turtle1/pose` (`turtlesim/msg/Pose`): donde `turtlesim_node` publica continuamente la posición y orientación actuales de la tortuga.
+
+- **Servicios (services)**  
+  Llamadas tipo petición–respuesta para operaciones puntuales:
+  - `/reset` (`std_srvs/srv/Empty`): utilizado por `TurtleController` para limpiar el lienzo y reiniciar la simulación.
+
+- **Paquetes (packages)**  
+  Son las unidades que agrupan nodos, configuración del paquete y librerías y metadatos:
+  - `my_turtle_controller` es el paquete de Python que contiene toda nuestra lógica: el nodo `move_turtle2.py`, el archivo `setup.py`, `package.xml`, tests (no utilizados) y recursos (no utilizaods).
+
+- **Workspace**  
+  Estructura de directorios donde se construyen y organizan varios paquetes con `colcon`.  
+  - En este caso es `ros2_ws`, que incluye el paquete `my_turtle_controller` y se compila con `colcon build`.
+
+Estos conceptos se combinan para lograr que el nodo `TurtleController` controle por completo el simulador `turtlesim` usando únicamente ROS 2, Python y los nodos, tópicos y servicios de TurtleSim.
+
 ## Descripción general del laboratorio
 
 El laboratorio busca que los estudiantes se familiaricen con ROS, puedan explicar los conceptos básicos de ROS y lo apliquen en un problema de robótica móvil.
@@ -200,6 +229,19 @@ Con el fin de mantener un código fuente profesional se dividió de la siguiente
   - Documentación del laboratorio, diagrama Mermaid y descripción del código.
 
 ---
+
+### Resultados
+
+Como resultado de la práctica de laboratorio de ROS con Turtlesim, se presenta el siguiente video donde se explica cómo correr el código y la demostración de las funciones principales con las que cuenta move_turtle2:
+
+<video width="1080" height="720" controls>
+  <source src="https://drive.google.com/file/d/1A1xO4MQUV6Bx2qG8Lt7cUjtGW7hwVwmP/view?usp=sharing" type="video/mp4">
+  Tu navegador no soporta video HTML5.
+</video>
+
+[Aquí se puede ver el video de la simulacion de turtlesim con el controlador move_turtle2:](https://drive.google.com/file/d/1A1xO4MQUV6Bx2qG8Lt7cUjtGW7hwVwmP/view?usp=sharing)
+
+
 
 ### Conclusiones y aprendizajes
 
