@@ -176,10 +176,6 @@ Para realizar el dibujo automático se cuenta con unas teclados predefinidas que
 
 
 ### Diagrama de flujo de la solución (Mermaid)
-**Requerimiento del laboratorio**  
-Incluir un diagrama de flujo implementado en Mermaid que represente claramente el funcionamiento de la solución.
-
-**Implementación en este repositorio**  
 El siguiente diagrama resume el comportamiento principal del nodo `move_turtle2.py`:
 
  ```mermaid
