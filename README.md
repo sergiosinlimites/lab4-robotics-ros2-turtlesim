@@ -21,15 +21,30 @@ En este laboratorio se cuenta con un paquete llamado `my_turtle_controller`, cuy
 - Lee el teclado directamente desde la terminal (sin usar `turtle_teleop_key`).
 - Implementa control manual con flechas y funciones automáticas para dibujar las letras **SABP** en la parte superior y **SFRM** en la parte inferior del mapa, además de letras individuales.
 
+## Cómo correr el código
+
+```bash
+# Terminal 1: lanzar el simulador
+source /opt/ros/humble/setup.bash
+ros2 run turtlesim turtlesim_node
+
+# Terminal 2: compilar y ejecutar el paquete
+source /opt/ros/humble/setup.bash
+cd .  # raíz de este repositorio
+colcon build
+source install/setup.bash
+ros2 run my_turtle_controller move_turtle
+```
+
 ## Procedimiento y desarrollo
 
 Para realizar este laboratorio se partió del código básico de `move_turtle` dado en la clase de laboratorio y disponible en el repositorio [Introducción a TurtleSim](https://github.com/labsir-un/ROB_Intro_ROS2_Humble_Turtlesim) del laboratorio.
 
-A partir de allí se realizan los siguientes:
+A partir de allí se hizo lo siguiente:
 
-1.
-2.
-3.
+1. Instalar y lanzar turtlesim (en cada terminal: `source /opt/ros/humble/setup.bash`): `sudo apt update && sudo apt install ros-humble-turtlesim`, luego `ros2 run turtlesim turtlesim_node` y en otra terminal `ros2 run turtlesim turtle_teleop_key`.
+2. Usar rqt y servicios: `sudo apt install '~nros-humble-rqt*'`, abrir `rqt`, llamar `/spawn` (turtle2 en x=1.0,y=1.0) y `/turtle1/set_pen` (r=255,g=0,b=0,width=5). Controlar turtle2 con remapeo: `ros2 run turtlesim turtle_teleop_key --ros-args --remap turtle1/cmd_vel:=turtle2/cmd_vel`.
+3. Compilar y correr el nodo Python del paquete: en el workspace `colcon build && source install/setup.bash` y ejecutar `ros2 run my_turtle_controller move_turtle`.
 
 Como parte de este laboratorio se solicitaba que se pudiera controlar la tortuga tanto con las flechas del teclado como de manera automática para las iniciales de todos los nombres y apellidos de los integrantes del grupo, para ello, se modificó el nodo `TurtleController` de `move_turtle2.py` con las siguientes funciones:
 
