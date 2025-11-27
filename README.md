@@ -153,19 +153,20 @@ Incluir un diagrama de flujo implementado en Mermaid que represente claramente e
 **Implementación en este repositorio**  
 El siguiente diagrama resume el comportamiento principal del nodo `move_turtle2.py`:
 
-```mermaid
+ ```mermaid
+  %%{init: { "theme": "", "flowchart": { "nodeSpacing": 3, "rankSpacing": 100 }, "fontSize":0} }%%
 flowchart TD
-    A[Inicio nodo TurtleController] --> B[Suscribirse a /turtle1/pose<br/>Crear publisher /turtle1/cmd_vel<br/>Crear cliente /reset]
-    B --> C[Esperar tecla en bucle]
+    A["Inicio nodo TurtleController"] --> B["Suscribirse a /turtle1/pose<br/>Crear publisher /turtle1/cmd_vel<br/>Crear cliente /reset"]
+    B --> C["Esperar tecla en bucle"]
 
-    C -->|Flechas↑↓←→| D[Control manual\nsend_cmd(linear, angular)]
-    C -->|1| E[SABP\n draw_SABP()]
-    C -->|2| F[SFRM\n draw_SFRM()]
-    C -->|3| G[Secuencia completa\n draw_FULL()]
-    C -->|s,a,b,p,f,r,m| H[Dibujo de letra individual\n funciones *_continuous]
-    C -->|c| I[Llamar reset_simulation()\nServicio /reset]
-    C -->|h| J[Ir al origen\nmove_to_start_L(5.54,5.54)]
-    C -->|q| K[Salir\nstop() y shutdown()]
+    C -->|"Flechas ↑↓←→"| D["Control manual<br/>send_cmd(linear, angular)"]
+    C -->|"1"| E["SABP<br/>draw_SABP()"]
+    C -->|"2"| F["SFRM<br/>draw_SFRM()"]
+    C -->|"3"| G["Secuencia completa<br/>draw_FULL()"]
+    C -->|"s,a,b,p,f,r,m"| H["Dibujo de letra individual<br/>funciones *_continuous"]
+    C -->|"c"| I["Llamar reset_simulation()<br/>Servicio /reset"]
+    C -->|"h"| J["Ir al origen<br/>move_to_start_L(5.54, 5.54)"]
+    C -->|"q"| K["Salir<br/>stop() y shutdown()"]
 
     D --> C
     E --> C
@@ -174,9 +175,8 @@ flowchart TD
     H --> C
     I --> C
     J --> C
-```
 
----
+```
 
 ### Organización del código fuente
 
