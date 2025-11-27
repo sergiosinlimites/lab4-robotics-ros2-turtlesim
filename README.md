@@ -242,7 +242,7 @@ Como resultado de la práctica de laboratorio de ROS con Turtlesim, se presenta 
 ### Conclusiones y aprendizajes
 
 1. Se logró implementar un nodo ROS 2 en Python que controla completamente `turtlesim` desde el teclado, respetando la restricción de no usar `turtle_teleop_key`.  
-2. Se diseñó un sistema de dibujo de letras continuas que mantiene tamaños y espaciados coherentes, permitiendo escribir palabras completas (**SABP** y **SFRM**) y letras individuales.  
-3. El uso de `turtlesim/msg/Pose` permitió incorporar control en lazo cerrado (por ejemplo, para ir a posiciones específicas y evitar cruces no deseados), mejorando la precisión de los trazos.  
+2. Se diseñó un sistema de dibujo de letras continuas que mantiene tamaños y espaciados coherentes, permitiendo escribir palabras completas (**SABP** y **SFRM**) y letras individuales. Pese a esto, se tuvo problemas para dibujar las letras de manera precisa. 
+3. El uso de `turtlesim/msg/Pose` permitió incorporar control en lazo cerrado (por ejemplo, para ir a posiciones específicas y evitar cruces no deseados), mejorando la precisión algunos de los trazos.  
 4. La integración del servicio `/reset` y de comandos de “home” facilita la experimentación rápida, algo muy útil en un entorno de laboratorio.  
-5. En conjunto, el laboratorio refuerza el entendimiento de nodos, tópicos, servicios y la interacción entre ROS 2 y Python, así como el diseño incremental de soluciones robóticas basadas en simulación.
+5. En conjunto, el laboratorio refuerza el entendimiento de nodos, tópicos, servicios y la interacción entre ROS 2 y Python.
